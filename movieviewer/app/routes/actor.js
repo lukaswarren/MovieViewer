@@ -1,12 +1,9 @@
+var movieSearch = require('../service/movie-by-title')
+
 module.exports = [{
 	method: 'GET',
-	path: '/mock',
+	path: '/mock/{movieName}',
 	handler: (request, h) => {
-		return {data};
-	}
+        return movieSearch.movietitle(request.params.movieName)
+    }
 }];
-
-const data = [
-	{ id: 1, name: 'Alex', age: 21 },
-	{ id: 2, name: 'Alice', age: 23 }
-];

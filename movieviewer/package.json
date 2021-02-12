@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/lukaswarren/MovieViewer#readme",
   "dependencies": {
-    "@hapi/hapi": "^20.1.0"
+    "@hapi/hapi": "^20.1.0",
+    "superagent": "^6.1.0"
   }
 }
