@@ -14,21 +14,23 @@ const server = Hapi.server({
 });
 
 // Add the route
-server.route({
-	method: 'GET',
-	path: '/',
-	handler: (request, h) => {
-		return 'hello world';
-	}
-});
+var routes = require('./app/routes');
+server.route(routes);
+// server.route({
+// 	method: 'GET',
+// 	path: '/',
+// 	handler: (request, h) => {
+// 		return 'hello world';
+// 	}
+// });
 
-server.route({
-	method: 'GET',
-	path: '/mock',
-	handler: (request, h) => {
-		return { data };
-	}
-});
+// server.route({
+// 	method: 'GET',
+// 	path: '/mock',
+// 	handler: (request, h) => {
+// 		return { data };
+// 	}
+// });
 
 // Start the server
 async function start() {
