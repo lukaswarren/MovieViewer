@@ -1,0 +1,22 @@
+{
+  "name": "movieviewer",
+  "version": "1.0.0",
+  "description": "\"Find the movie you recognize that actor from\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukaswarren/MovieViewer.git"
+  },
+  "author": "Luke Warren",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukaswarren/MovieViewer/issues"
+  },
+  "homepage": "https://github.com/lukaswarren/MovieViewer#readme",
+  "dependencies": {
+    "@hapi/hapi": "^20.1.0"
+  }
+}
