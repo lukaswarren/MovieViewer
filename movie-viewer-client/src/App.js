@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -25,11 +24,12 @@ class App extends Component {
 		return (
 			<div className="App">
 				<header className="App-header">
-					<img src={logo} className="App-logo" alt="logo" />
 					<h1>Whats That Movie?</h1>
               {movie.map(m => 
               <p>
-                Title : {m.title}  <br /> Poster: {m.image} <br /> Release: {m.release}
+                Title : {m.title} <br /> 
+                Release: {m.release}<br/>
+                <img src={'https://image.tmdb.org/t/p/w500/'+ m.image} />
               </p>
                 )}
 				</header>
