@@ -4,34 +4,34 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-	state = {
-		data: []
-	};
+	constructor(props) {
+    super(props);
+ 
+    this.state = {
+      movie: [],
+    };
+  }
 
 	componentDidMount() {
-		this.fetchData()
-			.then(res => this.setState(res))
+		fetch('/mock/Sandlot')
+      .then(response => response.json())
+			.then(data => this.setState({movie : data}))
 			.catch(err => console.log(err));
 	}
 
-	fetchData = async () => {
-		const response = await fetch('/mock');
-		const body = response.json();
-
-		return body;
-	};
 
 	render() {
+    const  { movie } = this.state;
 		return (
 			<div className="App">
 				<header className="App-header">
 					<img src={logo} className="App-logo" alt="logo" />
-					<h1>Data from the Backend</h1>
-					{this.state.data.map(person => (
-						<p key={person.id}>
-							Name: {person.name} <br /> Age: {person.age}
-						</p>
-					))}
+					<h1>Whats That Movie?</h1>
+              {movie.map(m => 
+              <p>
+                Title : {m.title}  <br /> Poster: {m.image} <br /> Release: {m.release}
+              </p>
+                )}
 				</header>
 			</div>
 		);

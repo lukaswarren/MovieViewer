@@ -1,2 +1,2 @@
-var actor = require('./actor');
-module.exports = actor;
+var movie = require('./movie');
+module.exports = movie;
