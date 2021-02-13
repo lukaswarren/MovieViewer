@@ -8,34 +8,84 @@ class App extends Component {
  
     this.state = {
       movie: [],
+      query: "",
+      image: ''
     };
   }
 
+  onChange = e => {
+    const {value} = e.target;
+    if(value !== ""|| value !== " "){
+      this.setState({
+        query: value
+      });
+    }
+    else{
+      this.setState({
+        query: "Searching"
+      });
+    }
+    
+    this.search(value);
+  };
+
+  search = query => {
+    const address = '/mock/'+ query;
+    fetch(address)
+    .then(response => response.json())
+		.then(data => this.setState({
+      movie : data,
+      image : 'https://image.tmdb.org/t/p/w500/'
+    }))
+		.catch(err => console.log(err));
+  }
+
 	componentDidMount() {
-		fetch('/mock/Sandlot')
-      .then(response => response.json())
-			.then(data => this.setState({movie : data}))
-			.catch(err => console.log(err));
+		this.search("");
 	}
 
 
 	render() {
-    const  { movie } = this.state;
 		return (
 			<div className="App">
 				<header className="App-header">
-					<h1>Whats That Movie?</h1>
-              {movie.map(m => 
-              <p>
-                Title : {m.title} <br /> 
-                Release: {m.release}<br/>
-                <img src={'https://image.tmdb.org/t/p/w500/'+ m.image} />
-              </p>
-                )}
-				</header>
+					<h3>Whats That Movie?</h3>
+        </header>
+        <form>
+          <input type ="text" className="searchBox" onChange= {this.onChange} placeholder = "Search">
+          </input>
+				</form>
+        <div>
+          <h2>{this.display()}</h2>
+        </div>
 			</div>
 		);
 	}
+
+  display(){
+    const movie = this.state.movie;
+    if(movie.length > 0){
+      return(
+        <div>
+          {this.state.movie.map(m => 
+              <p>
+              Title : {m.title} <br /> 
+              Release Date: {m.release}<br/>
+              <img src={this.state.image + m.image} />
+              </p>
+            )}
+        </div>
+      )
+    }
+    else {
+      return(
+        <div>
+          <p>Search for movie here</p>
+        </div>
+      )
+    }
+    
+  }
 }
 
 export default App;
