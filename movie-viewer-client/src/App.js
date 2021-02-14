@@ -51,10 +51,12 @@ class App extends Component {
 				<header className="App-header">
 					<h3>Whats That Movie?</h3>
         </header>
+        <div>
         <form>
           <input type ="text" className="searchBox" onChange= {this.onChange} placeholder = "Search">
           </input>
 				</form>
+        </div>
         <div>
           <h2>{this.display()}</h2>
         </div>
@@ -66,7 +68,7 @@ class App extends Component {
     const movie = this.state.movie;
     if(movie.length > 0){
       return(
-        <div>
+        <div lassName="App">
           {this.state.movie.map(m => 
               <p>
               Title : {m.title} <br /> 
@@ -79,7 +81,7 @@ class App extends Component {
     }
     else {
       return(
-        <div>
+        <div lassName="App">
           <p>Search for movie here</p>
         </div>
       )
