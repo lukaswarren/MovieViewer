@@ -8,7 +8,6 @@ module.exports = [{
 		var movieInfo = movie.then(function(m){
 			return [{ title :  m.original_title, image :  m.poster_path , release :  m.release_date}];
 		});
-		console.log(movieInfo);
 		return movieInfo;
     }
 }];
