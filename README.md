@@ -1,7 +1,7 @@
 # MovieViewer
 
-To run the project in movieviewer (the backend)  run "node service.js"
-In movie-viewer-client run "npm start"
+To run the project in movieviewer (the backend)  run "node service.js"- Runs on localhost:8000
+In movie-viewer-client run "npm start"- Runs on localhost:3000
 
 # Project specs
 This project uses the Hapi framework on the backend. To make the api calls it use a library called superagent. And finally its tested using jest. 
