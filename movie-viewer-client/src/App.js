@@ -9,23 +9,15 @@ class App extends Component {
     this.state = {
       movie: [],
       query: "",
-      image: ''
+      image : 'https://image.tmdb.org/t/p/w500/'
     };
   }
 
   onChange = e => {
     const {value} = e.target;
-    if(value !== ""|| value !== " "){
       this.setState({
         query: value
-      });
-    }
-    else{
-      this.setState({
-        query: "Searching"
-      });
-    }
-    
+      });    
     this.search(value);
   };
 
@@ -34,8 +26,7 @@ class App extends Component {
     fetch(address)
     .then(response => response.json())
 		.then(data => this.setState({
-      movie : data,
-      image : 'https://image.tmdb.org/t/p/w500/'
+      movie : data
     }))
 		.catch(err => console.log(err));
   }
@@ -81,7 +72,7 @@ class App extends Component {
     }
     else {
       return(
-        <div lassName="App">
+        <div className="App">
           <p>Search for movie here</p>
         </div>
       )
