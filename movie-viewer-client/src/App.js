@@ -30,7 +30,7 @@ class App extends Component {
   };
 
   search = query => {
-    const address = '/mock/'+ query;
+    const address = '/movie/'+ query;
     fetch(address)
     .then(response => response.json())
 		.then(data => this.setState({
